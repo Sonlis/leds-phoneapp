@@ -56,8 +56,8 @@ void main() => runApp(
 class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
   final List<String> effects = ["Scroll", "Energy", "Spectrum", "Off"];
   final List<String> components = [];
-   bool _hasBeenPressed1;
-  bool _hasBeenPressed2;
+  var _hasBeenPressed1 = false;
+  var _hasBeenPressed2 = false;
   Future<toSend> _futuretoSend;
   @override
   Widget build(BuildContext context) {
@@ -150,18 +150,18 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                 children: <Widget> [
                  ElevatedButton(
                    style: ElevatedButton.styleFrom(
-                    primary: _hasBeenPressed2 ? Colors.grey : Colors.blue
+                    primary: _hasBeenPressed1 ? Colors.grey : Colors.blue
                   ),
                    child: Text("Led strip 1"),
                    onPressed: () {
                      setState(() {
-                       if (_hasBeenPressed2 == false ) {
+                       if (_hasBeenPressed1 == false ) {
                         components.add("\"192.168.0.11\"");
                        }
                        else {
                         components.remove("\"192.168.0.11\"");
                        }
-                        _hasBeenPressed2 = !_hasBeenPressed2;
+                        _hasBeenPressed1 = !_hasBeenPressed1;
                     }
                      );
                    }
