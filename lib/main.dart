@@ -9,7 +9,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 Future<toSend> sendPackets(List<String> component, int effect) async {
   final response = await http.post(
-    Uri.http('192.168.0.130:8082', '/'),
+    Uri.http('192.168.0.151:8082', '/'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -159,10 +159,10 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                    onPressed: () {
                      setState(() {
                        if (_hasBeenPressed1 == false ) {
-                        components.add("\"192.168.0.150\"");
+                        components.add("\"192.168.0.11\"");
                        }
                        else {
-                        components.remove("\"192.168.0.150\"");
+                        components.remove("\"192.168.0.11\"");
                        }
                         _hasBeenPressed1 = !_hasBeenPressed1;
                     }
@@ -177,10 +177,10 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                    onPressed: () {
                      setState(() {
                        if (_hasBeenPressed2 == false ) {
-                        components.add("\"192.168.0.151\"");
+                        components.add("\"192.168.0.12\"");
                        }
                        else {
-                        components.remove("\"192.168.0.151\"");
+                        components.remove("\"192.168.0.12\"");
                        }
                         _hasBeenPressed2 = !_hasBeenPressed2;
                     }
@@ -195,10 +195,10 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                    onPressed: () {
                      setState(() {
                        if (_hasBeenPressed3 == false ) {
-                        components.add("\"192.168.0.152\"");
+                        components.add("\"192.168.0.13\"");
                        }
                        else {
-                        components.remove("\"192.168.0.152\"");
+                        components.remove("\"192.168.0.13\"");
                        }
                         _hasBeenPressed3 = !_hasBeenPressed3;
                     }
