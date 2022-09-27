@@ -7,7 +7,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-Future<toSend> sendPackets(List<String> component, int effect) async {
+Future<toSend> sendPackets(List<String> component, String effect) async {
   final response = await http.post(
     Uri.http('192.168.0.151:8082', '/'),
     headers: <String, String>{
@@ -22,7 +22,7 @@ Future<toSend> sendPackets(List<String> component, int effect) async {
 
 class toSend {
   final String component;
-  final int effect;
+  final String effect;
 
   toSend({this.component, this.effect});
 
@@ -44,10 +44,10 @@ void main() => runApp(
           ),
         ),
       ),
-    );  
+    );
 
  class FoldingCellListViewDemo extends StatefulWidget {
-  FoldingCellListViewDemo({Key key}) : super(key: key); 
+  FoldingCellListViewDemo({Key key}) : super(key: key);
   @override
   _FoldingCellListViewDemoState createState() {
     return _FoldingCellListViewDemoState();
@@ -209,15 +209,15 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                     child: Text("Send!"),
                     onPressed: () {
                       setState(() {
-                          _futuretoSend = sendPackets(components, index + 1);
+                          _futuretoSend = sendPackets(components, effects[index]);
                           components.removeRange(0,2);
                           _hasBeenPressed1 = false;
                           _hasBeenPressed2 = false;
                           _hasBeenPressed3 = false;
                       });
                     },
-                    ),   
-                  //colorpicker[index] ? 
+                    ),
+                  //colorpicker[index] ?
                   /*ElevatedButton(
                     child: Text("Modify color"),
                     onPressed: () {
@@ -228,7 +228,7 @@ class _FoldingCellListViewDemoState extends State<FoldingCellListViewDemo> {
                     }
                   ) : Container()*/
                 ]
-              ),  
+              ),
               Positioned(
                 right: 10,
                 bottom: 10,
